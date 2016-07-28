@@ -1,7 +1,7 @@
 node('php') {
-    stage 'Checkout tests'
+    stage 'Checkout'
     git 'https://github.com/nasqueron/tests-prod-environment-behaves-correctly.git'
 
-    stage 'Prod tests'
+    stage 'Tests'
     sh 'make test'
 }
