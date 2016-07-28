@@ -48,6 +48,7 @@ class DockerContainer {
 	 * @return string the command output
 	 */
 	public function exec ($command) {
-		return `ssh $this->host docker exec $this->container $command`;
+		$output = `ssh $this->host docker exec $this->container $command`;
+		return trim($output);
 	}
 }

@@ -16,8 +16,12 @@ class DevCentralDockerTest extends PHPUnit_Framework_TestCase {
 	}
 
 	public function testInitialized () {
-		//TODO: test if .initialized file exists
-		$this->markTestIncomplete("This test will have to be implemented after container update.");
+		$file = $this->container->exec("ls /opt/phabricator/.initialized");
+
+		$this->assertSame(
+			"/opt/phabricator/.initialized", $file,
+			".initialized file is missing: that could mean the whole /usr/local/bin/setup-phabricator didn't run."
+		);
 	}
 
 	public function testProcesses () {
