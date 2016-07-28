@@ -8,7 +8,7 @@ ENV_FOR_TEST_FULL= \
 	DOCKER_HOST=dwellers.nasqueron.org \
 
 test:
-	phpunit .
+	phpunit -v .
 
 test-full:
-	sh -c "${ENV_FOR_TEST_FULL} phpunit ."
+	sh -c "${ENV_FOR_TEST_FULL} phpunit -v ."
