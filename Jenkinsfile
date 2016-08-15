@@ -4,4 +4,7 @@ node('php') {
 
     stage 'Tests'
     sh 'make test'
+
+    stage 'Artefacts'
+    archive 'build/**'
 }

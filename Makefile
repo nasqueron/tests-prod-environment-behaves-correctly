@@ -8,7 +8,7 @@ ENV_FOR_TEST_FULL= \
 	DOCKER_HOST=dwellers.nasqueron.org \
 
 test:
-	phpunit -v .
+	phpunit --log-junit build/phpunit.xml -v .
 
 test-full:
-	sh -c "${ENV_FOR_TEST_FULL} phpunit -v ."
+	sh -c "${ENV_FOR_TEST_FULL} phpunit --log-junit build/phpunit.xml -v ."
