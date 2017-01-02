@@ -1,0 +1,60 @@
+{
+  "gates": [
+    "DockerHub",
+    "GitHub",
+    "Jenkins",
+    "Phabricator"
+  ],
+  "features": [
+    {
+      "name": "Gate",
+      "enabled": true
+    },
+    {
+      "name": "GetConfig",
+      "enabled": true
+    },
+    {
+      "name": "ActionsReport",
+      "enabled": true
+    }
+  ],
+  "services": [
+    {
+      "gate": "GitHub",
+      "door": "Nasqueron",
+      "instance": "",
+      "status": ""
+    },
+    {
+      "gate": "GitHub",
+      "door": "Wolfplex",
+      "instance": "",
+      "status": ""
+    },
+    {
+      "gate": "GitHub",
+      "door": "Keruald",
+      "instance": "",
+      "status": ""
+    },
+    {
+      "gate": "GitHub",
+      "door": "TrustSpace",
+      "instance": "",
+      "status": ""
+    },
+    {
+      "gate": "GitHub",
+      "door": "Eglide",
+      "instance": "",
+      "status": ""
+    },
+    {
+      "gate": "Phabricator",
+      "door": "Nasqueron",
+      "instance": "https:\/\/devcentral.nasqueron.org",
+      "status": ""
+    }
+  ]
+}
