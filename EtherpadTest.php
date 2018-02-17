@@ -2,7 +2,7 @@
 
 require_once 'traits/assertHttp.php';
 
-class EtherpadTest extends PHPUnit_Framework_TestCase {
+class EtherpadTest extends PHPUnit\Framework\TestCase {
 	use assertHttp;
 
 	public function testEtherpadIsLive () {

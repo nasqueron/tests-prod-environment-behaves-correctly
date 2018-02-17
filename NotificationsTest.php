@@ -2,7 +2,7 @@
 
 require_once 'traits/assertHttp.php';
 
-class NotificationsTest extends PHPUnit_Framework_TestCase {
+class NotificationsTest extends PHPUnit\Framework\TestCase {
 	use assertHttp;
 
 	///

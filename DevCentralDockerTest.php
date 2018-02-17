@@ -2,7 +2,7 @@
 
 require_once 'utils/DockerContainer.php';
 
-class DevCentralDockerTest extends PHPUnit_Framework_TestCase {
+class DevCentralDockerTest extends PHPUnit\Framework\TestCase {
 	private $container;
 
 	const DOCKER_CONTAINER = 'devcentral';

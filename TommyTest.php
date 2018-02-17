@@ -2,7 +2,7 @@
 
 require_once 'traits/assertHttp.php';
 
-class TommyTest extends PHPUnit_Framework_TestCase {
+class TommyTest extends PHPUnit\Framework\TestCase {
     use assertHttp;
 
     public function testIsLive () {

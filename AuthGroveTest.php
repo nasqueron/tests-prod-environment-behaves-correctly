@@ -2,7 +2,7 @@
 
 require_once 'traits/assertHttp.php';
 
-class AuthGroveTest extends PHPUnit_Framework_TestCase {
+class AuthGroveTest extends PHPUnit\Framework\TestCase {
     use assertHttp;
 
     public function testRedirections () {

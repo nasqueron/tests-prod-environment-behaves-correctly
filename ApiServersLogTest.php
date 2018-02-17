@@ -2,7 +2,7 @@
 
 require_once 'traits/assertHttp.php';
 
-class ApiServersLogTest extends PHPUnit_Framework_TestCase {
+class ApiServersLogTest extends PHPUnit\Framework\TestCase {
     use assertHttp;
 
     public function testAlive () {

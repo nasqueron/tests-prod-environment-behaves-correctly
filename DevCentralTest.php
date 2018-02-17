@@ -2,7 +2,7 @@
 
 require_once 'traits/assertHttp.php';
 
-class DevCentralTest extends PHPUnit_Framework_TestCase {
+class DevCentralTest extends PHPUnit\Framework\TestCase {
 	use assertHttp;
 
 	public function testWebsiteIsUp () {

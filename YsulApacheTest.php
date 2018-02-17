@@ -6,7 +6,7 @@ require_once 'traits/assertHttp.php';
  * These tests ensure Apache has been recompiled with
  * the right options as long as SuEXEC is concerned.
  */
-class YsulApacheTest extends PHPUnit_Framework_TestCase {
+class YsulApacheTest extends PHPUnit\Framework\TestCase {
 	use assertHttp;
 
 	/**
