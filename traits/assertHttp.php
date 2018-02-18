@@ -8,18 +8,17 @@ trait assertHttp {
 	 * @param string $url the URL to check
 	 * @param string $comment the comment to output if the test fails [facultative]
 	 */
-	private function assertHttpResponseCode ($expectedCode, $url, $comment = '') {
+	private function assertHttpResponseCode ($expectedCode, $url, $comment = '') : void {
 		$actualCode = $this->getHttpResponseCode($url);
-		return $this->assertEquals($expectedCode, $actualCode, $comment);
+		$this->assertEquals($expectedCode, $actualCode, $comment);
 	}
 
 	/**
 	 * Gets the HTTP response code of the specified URL
 	 *
 	 * @param string $url
-	 * @return int the HTTP response code
 	 */
-	private function getHttpResponseCode ($url) {
+	private function getHttpResponseCode ($url) : int {
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_USERAGENT, "Nasqueron-Ops-Tests");
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

@@ -24,19 +24,15 @@ class DockerContainer {
 
 	/**
 	 * Determines if a hostname is valid
-	 *
-	 * @return bool true if the specified name is valid; otherwise, false
 	 */
-	public static function isValidHostname ($host) {
+	public static function isValidHostname ($host) : bool {
 		return (bool)preg_match('/^[A-Za-z0-9\-\.]+$/', $host);
 	}
 
 	/**
 	 * Determines if a container name is valid
-	 *
-	 * @return bool true if the specified name is valid; otherwise, false
 	 */
-	public static function isValidContainerName ($name) {
+	public static function isValidContainerName ($name) : bool {
 		//Source: https://github.com/ajhager/docker/commit/f63cdf0260cf6287d28a589a79d3f947def6a569
 		return (bool)preg_match('@^/?[a-zA-Z0-9_-]+$@', $name);
 	}
@@ -47,7 +43,7 @@ class DockerContainer {
 	 * @param string $command the command to run
 	 * @return string the command output
 	 */
-	public function exec ($command) {
+	public function exec ($command) : string {
 		$output = `ssh $this->host docker exec $this->container $command`;
 		return trim($output);
 	}
