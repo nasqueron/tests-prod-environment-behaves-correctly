@@ -5,19 +5,38 @@ require_once 'traits/assertHttp.php';
 class TommyTest extends PHPUnit\Framework\TestCase {
     use assertHttp;
 
-    public function testIsLive () {
-        $this->assertHttpResponseCode(200, 'https://builds.nasqueron.org', 'Tommy looks down.');
-        $this->assertHttpResponseCode(404, 'https://builds.nasqueron.org/notexisting', 'A 404 code were expected for a not existing page.');
+    /**
+     * @dataProvider provideTommyInstances
+     */
+    public function testIsLive (string $url) {
+        $this->assertHttpResponseCode(200, $url, 'Tommy looks down.');
+        $this->assertHttpResponseCode(404, $url . '/notexisting', 'A 404 code were expected for a not existing page.');
     }
 
-    public function testAlive () {
-        $url = 'https://builds.nasqueron.org/status';
+    /**
+     * @dataProvider provideTommyInstances
+     */
+    public function testAlive (string $url) {
+        $url = $url . '/status';
         $this->assertHttpResponseCode(200, $url);
         $this->assertSame('ALIVE', file_get_contents($url));
     }
 
-    public function testDashboard () {
-        $content = file_get_contents('https://builds.nasqueron.org');
-        $this->assertContains('ci.nasqueron.org/job/', $content);
+    /**
+     * @dataProvider provideTommyInstances
+     */
+    public function testDashboard (string $url, string $instance) {
+        $content = file_get_contents($url . '');
+        $this->assertContains($instance . '/job/', $content);
     }
+
+    ///
+    /// Data providers
+    ///
+
+    public function provideTommyInstances () : iterable {
+        yield ["https://builds.nasqueron.org", "ci.nasqueron.org"];
+        yield ["https://infra.nasqueron.org/cd/dashboard", "cd.nasqueron.org"];
+    }
+
 }
