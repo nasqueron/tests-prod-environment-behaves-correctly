@@ -6,5 +6,5 @@ node('php') {
     sh 'make test'
 
     stage 'Artefacts'
-    archive 'build/**'
+    archiveArtifacts 'build/**'
 }
