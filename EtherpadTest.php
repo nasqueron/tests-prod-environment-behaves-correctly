@@ -16,10 +16,10 @@ class EtherpadTest extends PHPUnit\Framework\TestCase {
 	public function testWolfplexApiWorks () {
 		//Reported by philectro - 09:42 < philectro> hey tous les pad ont disparu :o
 
-		$url = "http://www.wolfplex.be/pad/";
+		$url = "https://api.wolfplex.org/pads/";
 		$this->assertHttpResponseCode(200, $url);
 
-		$stringOnlyAvailableWhenApiWorks = '<li><a href="/pad/';
+		$stringOnlyAvailableWhenApiWorks = '","'; // pads titles separator
 		$currentContent = file_get_contents($url);
 		$this->assertContains($stringOnlyAvailableWhenApiWorks, $currentContent, "On Ysul, /home/wolfplex.org/logs/api.log could help. But more probably, you reinstalled the Etherpad container without restoring the API key. Move the former APIKEY.txt file to /opt/etherpad-lite or, if lost, update Wolfplex API credentials with the new API key.");
 	}
