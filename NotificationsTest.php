@@ -39,7 +39,7 @@ class NotificationsTest extends PHPUnit\Framework\TestCase {
 		$this->assertJsonStringEqualsJsonFile(
 			 __DIR__ . "/data/notifications.config.json",
 			file_get_contents($url),
-			"The Notifications Center configuration doesn't match the expected configuration harcoded in this repository."
+			"The Notifications Center configuration doesn't match the expected configuration hardcoded in this repository."
 		);
 	}
 }
