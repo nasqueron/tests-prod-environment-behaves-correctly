@@ -22,7 +22,9 @@ class AuthGroveTest extends PHPUnit\Framework\TestCase {
     }
 
     public function testHomepage () {
-        $content = file_get_contents('https://login.nasqueron.org');
+        $url = 'https://login.nasqueron.org';
+        $this->assertHttpResponseCode(200, $url);
+        $content = file_get_contents($url);
         $this->assertContains('https://login.nasqueron.org/auth/', $content);
     }
 }
