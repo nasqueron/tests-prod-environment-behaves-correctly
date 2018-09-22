@@ -6,11 +6,11 @@ class EtherpadTest extends PHPUnit\Framework\TestCase {
 	use assertHttp;
 
 	public function testEtherpadIsLive () {
-		$this->assertHttpResponseCode(200, 'http://pad.nasqueron.org', 'Etherpad looks down.');
-		$this->assertHttpResponseCode(200, 'https://pad.nasqueron.org/', "Etherpad HTTPS issue.");
-		$this->assertHttpResponseCode(200, 'http://pad.wolfplex.be', "Etherpad doesn't reply to pad.wolfplex.be vhost.");
-		$this->assertHttpResponseCode(404, 'http://pad.nasqueron.org/notexisting', 'A 404 code were expected for a not existing Etherpad page.');
-		$this->assertHttpResponseCode(200, 'http://pad.nasqueron.org/metrics', "ep_ether-o-meter plugin doesn't seem installed.");
+		$this->assertHttpResponseCode(301, 'http://pad.nasqueron.org/', "Etherpad isn't redirected on HTTP.");
+		$this->assertHttpResponseCode(200, 'https://pad.nasqueron.org/', "Etherpad looks down.");
+		$this->assertHttpResponseCode(200, 'https://pad.wolfplex.be', "Etherpad doesn't reply to pad.wolfplex.be vhost.");
+		$this->assertHttpResponseCode(404, 'https://pad.nasqueron.org/notexisting', 'A 404 code were expected for a not existing Etherpad page.');
+		$this->assertHttpResponseCode(200, 'https://pad.nasqueron.org/metrics', "ep_ether-o-meter plugin doesn't seem installed.");
 	}
 
 	public function testWolfplexApiWorks () {
