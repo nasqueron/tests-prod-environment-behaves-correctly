@@ -1,0 +1,15 @@
+{
+    "name": "nasqueron/tests-prod-environment-behaves-correctly",
+    "description": "Tests to validate production environment",
+    "type": "project",
+    "require": {
+        "phpunit/phpunit": "^7.3"
+    },
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Sébastien Santoro",
+            "email": "dereckson@espace-win.org"
+        }
+    ]
+}
