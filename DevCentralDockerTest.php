@@ -31,12 +31,24 @@ class DevCentralDockerTest extends PHPUnit\Framework\TestCase {
 			'nginx: master process',
 			'nginx: worker process',
 			'php-fpm: master process',
-			'PhabricatorTaskmasterDaemon',
-			'PhabricatorBot',
+			'phd-daemon',
 		];
 
 		foreach ($expectedProcesses as $expectedProcess) {
 			$this->assertContains($expectedProcess, $processes, "The process $expectedProcess isn't currently launched.");
+		}
+	}
+
+	public function testPhabricatorDaemons () {
+		$daemons = $this->container->exec("/opt/phabricator/bin/phd status");
+
+		$expectedDaemons = [
+			'PhabricatorRepositoryPullLocalDaemon',
+			'PhabricatorTaskmasterDaemon',
+		];
+
+		foreach ($expectedDaemons as $expectedDaemon) {
+			$this->assertContains($expectedDaemon, $daemons, "The daemon $expectedDaemon isn't currently launched.");
 		}
 	}
 }

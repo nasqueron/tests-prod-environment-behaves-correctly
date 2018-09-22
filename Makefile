@@ -5,7 +5,7 @@
 
 ENV_FOR_TEST_FULL= \
 	DOCKER_ACCESS=1 \
-	DOCKER_HOST=dwellers.nasqueron.org \
+	DOCKER_HOST=equatower.nasqueron.org \
 
 test:
 	phpunit --log-junit build/phpunit.xml -v .
