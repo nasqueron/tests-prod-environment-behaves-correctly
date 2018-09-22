@@ -15,6 +15,6 @@ class DevCentralTest extends PHPUnit\Framework\TestCase {
     }
 
 	public function testAphlictIsUp () {
-		$this->assertHttpResponseCode(405, 'http://dwellers.nasqueron.org:22281/', 'Aphlict server seems down, does aphlict container is launched in Docker engine?');
+		$this->assertHttpResponseCode(405, 'https://dwellers.nasqueron.org:22281/', 'Aphlict server seems down, does aphlict container has been launched in Docker engine?');
 	}
 }
