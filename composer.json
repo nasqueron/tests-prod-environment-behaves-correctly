@@ -3,7 +3,8 @@
     "description": "Tests to validate production environment",
     "type": "project",
     "require": {
-        "phpunit/phpunit": "^7.3"
+        "phpunit/phpunit": "^7.3",
+        "ext-yaml": "*"
     },
     "license": "BSD-2-Clause",
     "authors": [
