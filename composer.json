@@ -6,6 +6,10 @@
         "phpunit/phpunit": "^9.5",
         "ext-yaml": "*"
     },
+    "require-dev": {
+        "nasqueron/codestyle": "^0.0.1",
+        "squizlabs/php_codesniffer": "^3.6"
+    },
     "license": "BSD-2-Clause",
     "authors": [
         {
