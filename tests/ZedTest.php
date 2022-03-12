@@ -1,9 +1,11 @@
 <?php
 
-require_once 'traits/assertHttp.php';
+namespace Nasqueron\Infrastructure\ProductionTests;
 
-class ZedTest extends PHPUnit\Framework\TestCase {
-    use assertHttp;
+use PHPUnit\Framework\TestCase;
+
+class ZedTest extends TestCase {
+    use WithAssertHttp;
 
     public function testAlive () {
         $url = 'https://hypership.space/';

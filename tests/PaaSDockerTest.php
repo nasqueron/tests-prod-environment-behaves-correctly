@@ -1,13 +1,14 @@
 <?php
 
-require_once 'traits/assertHttp.php';
-require_once 'utils/OperationsConfiguration.php';
+namespace Nasqueron\Infrastructure\ProductionTests;
+
+use PHPUnit\Framework\TestCase;
 
 use Nasqueron\Infrastructure\OperationsConfiguration;
 
-class PaaSDockerTest extends PHPUnit\Framework\TestCase {
+class PaaSDockerTest extends TestCase {
 
-    use assertHttp;
+    use WithAssertHttp;
 
     /**
      * @dataProvider provideDockerDomains

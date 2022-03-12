@@ -1,9 +1,11 @@
 <?php
 
-require_once 'traits/assertHttp.php';
+namespace Nasqueron\Infrastructure\ProductionTests;
 
-class AuthGroveTest extends PHPUnit\Framework\TestCase {
-    use assertHttp;
+use PHPUnit\Framework\TestCase;
+
+class AuthGroveTest extends TestCase {
+    use WithAssertHttp;
 
     public function testTLS () {
         $this->assertHttpResponseCode(301, 'http://login.nasqueron.org', 'Webserver should be configured to redirect http to https.');
@@ -21,7 +23,7 @@ class AuthGroveTest extends PHPUnit\Framework\TestCase {
         $this->assertHttpResponseCode(302, $url, '/ should redirect to login page');
 
         $content = file_get_contents($url);
-        $this->assertContains('https://login.nasqueron.org/auth/', $content);
+        $this->assertStringContainsString('https://login.nasqueron.org/auth/', $content);
     }
 
     public function testNotExisting () {

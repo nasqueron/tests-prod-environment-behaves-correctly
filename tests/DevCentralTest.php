@@ -1,9 +1,11 @@
 <?php
 
-require_once 'traits/assertHttp.php';
+namespace Nasqueron\Infrastructure\ProductionTests;
 
-class DevCentralTest extends PHPUnit\Framework\TestCase {
-	use assertHttp;
+use PHPUnit\Framework\TestCase;
+
+class DevCentralTest extends TestCase {
+	use WithAssertHttp;
 
 	public function testWebsiteIsUp () {
 		$this->assertHttpResponseCode(200, 'https://devcentral.nasqueron.org', "DevCentral HTTPS issue.");

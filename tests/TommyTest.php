@@ -1,9 +1,11 @@
 <?php
 
-require_once 'traits/assertHttp.php';
+namespace Nasqueron\Infrastructure\ProductionTests;
 
-class TommyTest extends PHPUnit\Framework\TestCase {
-    use assertHttp;
+use PHPUnit\Framework\TestCase;
+
+class TommyTest extends TestCase {
+    use WithAssertHttp;
 
     /**
      * @dataProvider provideTommyInstances

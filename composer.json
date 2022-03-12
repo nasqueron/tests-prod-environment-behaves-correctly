@@ -3,7 +3,7 @@
     "description": "Tests to validate production environment",
     "type": "project",
     "require": {
-        "phpunit/phpunit": "^7.3",
+        "phpunit/phpunit": "^9.5",
         "ext-yaml": "*"
     },
     "license": "BSD-2-Clause",
@@ -12,5 +12,11 @@
             "name": "Sébastien Santoro",
             "email": "dereckson@espace-win.org"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "Nasqueron\\Infrastructure\\ProductionTests\\": "tests/",
+            "Nasqueron\\Infrastructure\\": "lib/Infrastructure"
+        }
+    }
 }

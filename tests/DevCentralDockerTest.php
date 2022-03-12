@@ -1,13 +1,17 @@
 <?php
 
-require_once 'utils/DockerContainer.php';
+namespace Nasqueron\Infrastructure\ProductionTests;
 
-class DevCentralDockerTest extends PHPUnit\Framework\TestCase {
+use PHPUnit\Framework\TestCase;
+
+use Nasqueron\Infrastructure\DockerContainer;
+
+class DevCentralDockerTest extends TestCase {
 	private $container;
 
 	const DOCKER_CONTAINER = 'devcentral';
 
-	protected function setUp () {
+	public function setUp () : void {
 		if (!getenv('DOCKER_ACCESS')) {
 			$this->markTestSkipped("No access to Docker engine.");
 		}
@@ -35,7 +39,7 @@ class DevCentralDockerTest extends PHPUnit\Framework\TestCase {
 		];
 
 		foreach ($expectedProcesses as $expectedProcess) {
-			$this->assertContains($expectedProcess, $processes, "The process $expectedProcess isn't currently launched.");
+			$this->assertStringContainsString($expectedProcess, $processes, "The process $expectedProcess isn't currently launched.");
 		}
 	}
 
@@ -48,7 +52,7 @@ class DevCentralDockerTest extends PHPUnit\Framework\TestCase {
 		];
 
 		foreach ($expectedDaemons as $expectedDaemon) {
-			$this->assertContains($expectedDaemon, $daemons, "The daemon $expectedDaemon isn't currently launched.");
+			$this->assertStringContainsString($expectedDaemon, $daemons, "The daemon $expectedDaemon isn't currently launched.");
 		}
 	}
 }

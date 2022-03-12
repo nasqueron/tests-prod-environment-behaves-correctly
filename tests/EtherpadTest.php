@@ -1,9 +1,11 @@
 <?php
 
-require_once 'traits/assertHttp.php';
+namespace Nasqueron\Infrastructure\ProductionTests;
 
-class EtherpadTest extends PHPUnit\Framework\TestCase {
-	use assertHttp;
+use PHPUnit\Framework\TestCase;
+
+class EtherpadTest extends TestCase {
+	use WithAssertHttp;
 
 	public function testEtherpadIsLive () {
 		$this->assertHttpResponseCode(301, 'http://pad.nasqueron.org/', "Etherpad isn't redirected on HTTP.");
@@ -21,6 +23,6 @@ class EtherpadTest extends PHPUnit\Framework\TestCase {
 
 		$stringOnlyAvailableWhenApiWorks = '","'; // pads titles separator
 		$currentContent = file_get_contents($url);
-		$this->assertContains($stringOnlyAvailableWhenApiWorks, $currentContent, "On Ysul, /home/wolfplex.org/logs/api.log could help. But more probably, you reinstalled the Etherpad container without restoring the API key. Move the former APIKEY.txt file to /opt/etherpad-lite or, if lost, update Wolfplex API credentials with the new API key.");
+		$this->assertStringContainsString($stringOnlyAvailableWhenApiWorks, $currentContent, "On Ysul, /home/wolfplex.org/logs/api.log could help. But more probably, you reinstalled the Etherpad container without restoring the API key. Move the former APIKEY.txt file to /opt/etherpad-lite or, if lost, update Wolfplex API credentials with the new API key.");
 	}
 }

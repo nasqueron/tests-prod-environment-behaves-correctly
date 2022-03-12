@@ -1,5 +1,7 @@
 <?php
 
+namespace Nasqueron\Infrastructure;
+
 class DockerContainer {
 	private $host;
 	private $container;

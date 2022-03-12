@@ -1,9 +1,11 @@
 <?php
 
-require_once 'traits/assertHttp.php';
+namespace Nasqueron\Infrastructure\ProductionTests;
 
-class ApiServersLogTest extends PHPUnit\Framework\TestCase {
-    use assertHttp;
+use PHPUnit\Framework\TestCase;
+
+class ApiServersLogTest extends TestCase {
+    use WithAssertHttp;
 
     public function testAlive () {
         $url = 'https://api.nasqueron.org/servers-log/status';

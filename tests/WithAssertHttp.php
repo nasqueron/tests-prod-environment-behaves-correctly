@@ -1,6 +1,10 @@
 <?php
 
-trait assertHttp {
+namespace Nasqueron\Infrastructure\ProductionTests;
+
+use PHPUnit\Framework\TestCase;
+
+trait WithAssertHttp {
 	/**
 	 * Asserts the HTTP response code of an URL matches the expected code
 	 */
