@@ -17,6 +17,6 @@ class DevCentralTest extends TestCase {
     }
 
     public function testAphlictIsUp () {
-        $this->assertHttpResponseCode(405, 'http://equatower.nasqueron.org:22281/', 'Aphlict server seems down. Check if the aphlict container is launched on the Docker engine.');
+        $this->assertHttpResponseCode(405, 'http://docker-002.nasqueron.org:22281/', 'Aphlict server seems down. Check if the aphlict container is launched on the Docker engine.');
     }
 }

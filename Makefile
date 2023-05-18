@@ -7,7 +7,7 @@ PHPUNIT=vendor/bin/phpunit
 
 ENV_FOR_TEST_FULL= \
 	DOCKER_ACCESS=1 \
-	DOCKER_HOST=equatower.nasqueron.org \
+	DOCKER_HOST=docker-002.nasqueron.org \
 
 all: test
 
